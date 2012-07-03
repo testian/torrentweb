@@ -1,0 +1,286 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (exceptions.cpp:364), pid=1022, tid=3032390544
+#  Error: ExceptionMark destructor expects no pending exceptions
+#
+# JRE version: 6.0_17-b04
+# Java VM: Java HotSpot(TM) Client VM (14.3-b01 mixed mode, sharing linux-x86 )
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x094f2000):  JavaThread "Simple Timer[1]" daemon [_thread_in_vm, id=2513, stack(0xb4b99000,0xb4bea000)]
+
+Stack: [0xb4b99000,0xb4bea000],  sp=0xb4be6cb0,  free space=311k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x3fb71a]
+V  [libjvm.so+0x191d6c]
+V  [libjvm.so+0x1a5951]
+V  [libjvm.so+0x1487f6]
+V  [libjvm.so+0x147dd3]
+V  [libjvm.so+0x147e70]
+V  [libjvm.so+0x149830]
+V  [libjvm.so+0x39ea1c]
+V  [libjvm.so+0x39cea5]
+V  [libjvm.so+0x39bdd6]
+V  [libjvm.so+0x39ba90]
+V  [libjvm.so+0x289f9e]
+V  [libjvm.so+0x28faed]
+V  [libjvm.so+0x271ba2]
+C  [libjava.so+0xbbd4]  Java_java_lang_ClassLoader_findBootstrapClass+0x114
+j  java.lang.ClassLoader.findBootstrapClass(Ljava/lang/String;)Ljava/lang/Class;+0
+j  java.lang.ClassLoader.findBootstrapClass0(Ljava/lang/String;)Ljava/lang/Class;+19
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+32
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+23
+j  sun.misc.Launcher$AppClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+41
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class;+3
+j  java.lang.ClassLoader.loadClassInternal(Ljava/lang/String;)Ljava/lang/Class;+2
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x213740]
+V  [libjvm.so+0x327158]
+V  [libjvm.so+0x2131b2]
+V  [libjvm.so+0x2132b7]
+V  [libjvm.so+0x39ebf1]
+V  [libjvm.so+0x39cea5]
+V  [libjvm.so+0x39bdd6]
+V  [libjvm.so+0x39ba90]
+V  [libjvm.so+0x289f9e]
+V  [libjvm.so+0x28faed]
+V  [libjvm.so+0x271ba2]
+C  [libjava.so+0xb246]  Java_java_lang_Class_forName0+0x116
+j  java.lang.Class.forName0(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;+0
+j  java.lang.Class.forName(Ljava/lang/String;)Ljava/lang/Class;+5
+j  org.gudy.azureus2.core3.security.impl.SESecurityManagerImpl.initialise()V+103
+j  org.gudy.azureus2.core3.security.SESecurityManager.initialise()V+3
+j  org.gudy.azureus2.core3.config.impl.ConfigurationChecker.setSystemProperties()V+375
+j  org.gudy.azureus2.core3.config.impl.ConfigurationManager.initialise()V+3
+j  org.gudy.azureus2.core3.config.impl.ConfigurationManager.getInstance()Lorg/gudy/azureus2/core3/config/impl/ConfigurationManager;+37
+j  org.gudy.azureus2.core3.config.COConfigurationManager.addAndFireParameterListeners([Ljava/lang/String;Lorg/gudy/azureus2/core3/config/ParameterListener;)V+8
+j  org.gudy.azureus2.core3.util.ThreadPool$threadPoolWorker.run()V+191
+j  org.gudy.azureus2.core3.util.AEThread2$threadWrapper.run()V+11
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x213740]
+V  [libjvm.so+0x327158]
+V  [libjvm.so+0x212f47]
+V  [libjvm.so+0x212ffa]
+V  [libjvm.so+0x290315]
+V  [libjvm.so+0x3ca73e]
+V  [libjvm.so+0x3285fe]
+C  [libpthread.so.0+0x64c0]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.lang.ClassLoader.findBootstrapClass(Ljava/lang/String;)Ljava/lang/Class;+0
+j  java.lang.ClassLoader.findBootstrapClass0(Ljava/lang/String;)Ljava/lang/Class;+19
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+32
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+23
+j  sun.misc.Launcher$AppClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+41
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class;+3
+j  java.lang.ClassLoader.loadClassInternal(Ljava/lang/String;)Ljava/lang/Class;+2
+v  ~StubRoutines::call_stub
+j  java.lang.Class.forName0(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;+0
+j  java.lang.Class.forName(Ljava/lang/String;)Ljava/lang/Class;+5
+j  org.gudy.azureus2.core3.security.impl.SESecurityManagerImpl.initialise()V+103
+j  org.gudy.azureus2.core3.security.SESecurityManager.initialise()V+3
+j  org.gudy.azureus2.core3.config.impl.ConfigurationChecker.setSystemProperties()V+375
+j  org.gudy.azureus2.core3.config.impl.ConfigurationManager.initialise()V+3
+j  org.gudy.azureus2.core3.config.impl.ConfigurationManager.getInstance()Lorg/gudy/azureus2/core3/config/impl/ConfigurationManager;+37
+j  org.gudy.azureus2.core3.config.COConfigurationManager.addAndFireParameterListeners([Ljava/lang/String;Lorg/gudy/azureus2/core3/config/ParameterListener;)V+8
+j  org.gudy.azureus2.core3.util.ThreadPool$threadPoolWorker.run()V+191
+j  org.gudy.azureus2.core3.util.AEThread2$threadWrapper.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x094f1000 JavaThread "Timer:Simple Timer" daemon [_thread_blocked, id=2515, stack(0xb49af000,0xb4a00000)]
+  0x094fb400 JavaThread "SystemTime" daemon [_thread_blocked, id=2514, stack(0xb4b48000,0xb4b99000)]
+=>0x094f2000 JavaThread "Simple Timer[1]" daemon [_thread_in_vm, id=2513, stack(0xb4b99000,0xb4bea000)]
+  0x094be800 JavaThread "Thread-3" daemon [_thread_blocked, id=1162, stack(0xb4bea000,0xb4c3b000)]
+  0x094a2000 JavaThread "DestroyJavaVM" [_thread_blocked, id=1025, stack(0xb7527000,0xb7578000)]
+  0x09590800 JavaThread "Thread-2" [_thread_in_native, id=1045, stack(0xb4c3b000,0xb4c8c000)]
+  0x0958c800 JavaThread "server-timer" daemon [_thread_blocked, id=1042, stack(0xb4c8c000,0xb4cdd000)]
+  0x094dec00 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=1038, stack(0xb4e46000,0xb4e97000)]
+  0x094db800 JavaThread "CompilerThread0" daemon [_thread_blocked, id=1036, stack(0xb4e97000,0xb4f18000)]
+  0x094da000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=1034, stack(0xb4f18000,0xb4f69000)]
+  0x094c9400 JavaThread "Finalizer" daemon [_thread_blocked, id=1033, stack(0xb526c000,0xb52bd000)]
+  0x094c7c00 JavaThread "Reference Handler" daemon [_thread_blocked, id=1030, stack(0xb52bd000,0xb530e000)]
+
+Other Threads:
+  0x094c6000 VMThread [stack: 0xb530e000,0xb538f000] [id=1029]
+  0x094e0800 WatcherThread [stack: 0xb4dc5000,0xb4e46000] [id=1040]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 960K, used 932K [0x8b730000, 0x8b830000, 0x8bc10000)
+  eden space 896K,  97% used [0x8b730000, 0x8b8098e0, 0x8b810000)
+  from space 64K, 100% used [0x8b810000, 0x8b820000, 0x8b820000)
+  to   space 64K,   0% used [0x8b820000, 0x8b820000, 0x8b830000)
+ tenured generation   total 4096K, used 401K [0x8bc10000, 0x8c010000, 0x8f730000)
+   the space 4096K,   9% used [0x8bc10000, 0x8bc74530, 0x8bc74600, 0x8c010000)
+ compacting perm gen  total 12288K, used 1179K [0x8f730000, 0x90330000, 0x93730000)
+   the space 12288K,   9% used [0x8f730000, 0x8f856cc0, 0x8f856e00, 0x90330000)
+    ro space 8192K,  74% used [0x93730000, 0x93d293f0, 0x93d29400, 0x93f30000)
+    rw space 12288K,  59% used [0x93f30000, 0x946476e0, 0x94647800, 0x94b30000)
+
+Dynamic libraries:
+08048000-08052000 r-xp 00000000 08:16 3195640                            /usr/lib/jvm/java-6-sun-1.6.0.17/jre/bin/java
+08052000-08053000 rwxp 00009000 08:16 3195640                            /usr/lib/jvm/java-6-sun-1.6.0.17/jre/bin/java
+0949c000-095e1000 rwxp 0949c000 00:00 0                                  [heap]
+8b730000-8b830000 rwxp 8b730000 00:00 0 
+8b830000-8bc10000 rwxp 8b830000 00:00 0 
+8bc10000-8c010000 rwxp 8bc10000 00:00 0 
+8c010000-8f730000 rwxp 8c010000 00:00 0 
+8f730000-90330000 rwxp 8f730000 00:00 0 
+90330000-93730000 rwxp 90330000 00:00 0 
+93730000-93d2a000 r-xs 00001000 08:16 50979                              /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/client/classes.jsa
+93d2a000-93f30000 rwxp 93d2a000 00:00 0 
+93f30000-94648000 rwxp 005fb000 08:16 50979                              /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/client/classes.jsa
+94648000-94b30000 rwxp 94648000 00:00 0 
+94b30000-94c0e000 rwxp 00d13000 08:16 50979                              /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/client/classes.jsa
+94c0e000-94f30000 rwxp 94c0e000 00:00 0 
+94f30000-94f38000 r-xs 00df1000 08:16 50979                              /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/client/classes.jsa
+94f38000-95330000 rwxp 94f38000 00:00 0 
+b49af000-b49b2000 ---p b49af000 00:00 0 
+b49b2000-b4a23000 rwxp b49b2000 00:00 0 
+b4a23000-b4b00000 ---p b4a23000 00:00 0 
+b4b48000-b4b4b000 ---p b4b48000 00:00 0 
+b4b4b000-b4b99000 rwxp b4b4b000 00:00 0 
+b4b99000-b4b9c000 ---p b4b99000 00:00 0 
+b4b9c000-b4bea000 rwxp b4b9c000 00:00 0 
+b4bea000-b4bed000 ---p b4bea000 00:00 0 
+b4bed000-b4c3b000 rwxp b4bed000 00:00 0 
+b4c3b000-b4c3e000 ---p b4c3b000 00:00 0 
+b4c3e000-b4c8c000 rwxp b4c3e000 00:00 0 
+b4c8c000-b4c8f000 ---p b4c8c000 00:00 0 
+b4c8f000-b4cdd000 rwxp b4c8f000 00:00 0 
+b4cdd000-b4ce4000 r-xp 00000000 08:16 1425856                            /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/libnio.so
+b4ce4000-b4ce5000 rwxp 00006000 08:16 1425856                            /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/libnio.so
+b4ce5000-b4db1000 r-xs 00b7f000 08:16 5622172                            /home/testi/violetsky_torrent/lib/Azureus2.jar
+b4db1000-b4dc4000 r-xp 00000000 08:16 1425970                            /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/libnet.so
+b4dc4000-b4dc5000 rwxp 00013000 08:16 1425970                            /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/libnet.so
+b4dc5000-b4dc6000 ---p b4dc5000 00:00 0 
+b4dc6000-b4e46000 rwxp b4dc6000 00:00 0 
+b4e46000-b4e49000 ---p b4e46000 00:00 0 
+b4e49000-b4e97000 rwxp b4e49000 00:00 0 
+b4e97000-b4e9a000 ---p b4e97000 00:00 0 
+b4e9a000-b4f18000 rwxp b4e9a000 00:00 0 
+b4f18000-b4f1b000 ---p b4f18000 00:00 0 
+b4f1b000-b4f9c000 rwxp b4f1b000 00:00 0 
+b4f9c000-b5132000 r-xs 02fb6000 08:16 1409525                            /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/rt.jar
+b5132000-b526c000 r-xp 00000000 08:16 524295                             /usr/lib/locale/locale-archive
+b526c000-b526f000 ---p b526c000 00:00 0 
+b526f000-b52bd000 rwxp b526f000 00:00 0 
+b52bd000-b52c0000 ---p b52bd000 00:00 0 
+b52c0000-b530e000 rwxp b52c0000 00:00 0 
+b530e000-b530f000 ---p b530e000 00:00 0 
+b530f000-b5396000 rwxp b530f000 00:00 0 
+b5396000-b53b0000 rwxp b5396000 00:00 0 
+b53b0000-b53b3000 rwxp b53b0000 00:00 0 
+b53b3000-b53ce000 rwxp b53b3000 00:00 0 
+b53ce000-b53cf000 rwxp b53ce000 00:00 0 
+b53cf000-b53d0000 rwxp b53cf000 00:00 0 
+b53d0000-b53d3000 rwxp b53d0000 00:00 0 
+b53d3000-b53ee000 rwxp b53d3000 00:00 0 
+b53ee000-b53f4000 rwxp b53ee000 00:00 0 
+b53f4000-b540e000 rwxp b53f4000 00:00 0 
+b540e000-b541c000 rwxp b540e000 00:00 0 
+b541c000-b5499000 rwxp b541c000 00:00 0 
+b5499000-b5539000 rwxp b5499000 00:00 0 
+b5539000-b7499000 rwxp b5539000 00:00 0 
+b7499000-b74a8000 r-xp 00000000 08:16 1426087                            /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/libzip.so
+b74a8000-b74aa000 rwxp 0000e000 08:16 1426087                            /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/libzip.so
+b74aa000-b74b4000 r-xp 00000000 08:16 4391381                            /lib/i686/cmov/libnss_files-2.7.so
+b74b4000-b74b6000 rwxp 00009000 08:16 4391381                            /lib/i686/cmov/libnss_files-2.7.so
+b74b6000-b74be000 r-xp 00000000 08:16 4391370                            /lib/i686/cmov/libnss_nis-2.7.so
+b74be000-b74c0000 rwxp 00008000 08:16 4391370                            /lib/i686/cmov/libnss_nis-2.7.so
+b74c0000-b74c7000 r-xp 00000000 08:16 4391374                            /lib/i686/cmov/libnss_compat-2.7.so
+b74c7000-b74c9000 rwxp 00006000 08:16 4391374                            /lib/i686/cmov/libnss_compat-2.7.so
+b74c9000-b74de000 r-xp 00000000 08:16 4391371                            /lib/i686/cmov/libnsl-2.7.so
+b74de000-b74e0000 rwxp 00014000 08:16 4391371                            /lib/i686/cmov/libnsl-2.7.so
+b74e0000-b74e2000 rwxp b74e0000 00:00 0 
+b74e5000-b74f1000 rwxp b74e5000 00:00 0 
+b74f1000-b74f9000 rwxs 00000000 08:16 4489501                            /tmp/hsperfdata_testi/1022
+b74f9000-b751c000 r-xp 00000000 08:16 1425968                            /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/libjava.so
+b751c000-b751e000 rwxp 00023000 08:16 1425968                            /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/libjava.so
+b751e000-b7525000 r-xp 00000000 08:16 4391379                            /lib/i686/cmov/librt-2.7.so
+b7525000-b7527000 rwxp 00006000 08:16 4391379                            /lib/i686/cmov/librt-2.7.so
+b7527000-b752a000 ---p b7527000 00:00 0 
+b752a000-b7578000 rwxp b752a000 00:00 0 
+b7578000-b759c000 r-xp 00000000 08:16 4391361                            /lib/i686/cmov/libm-2.7.so
+b759c000-b759e000 rwxp 00023000 08:16 4391361                            /lib/i686/cmov/libm-2.7.so
+b759e000-b7a04000 r-xp 00000000 08:16 541488                             /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/client/libjvm.so
+b7a04000-b7a24000 rwxp 00465000 08:16 541488                             /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/client/libjvm.so
+b7a24000-b7e45000 rwxp b7a24000 00:00 0 
+b7e45000-b7f9a000 r-xp 00000000 08:16 4391376                            /lib/i686/cmov/libc-2.7.so
+b7f9a000-b7f9b000 r-xp 00155000 08:16 4391376                            /lib/i686/cmov/libc-2.7.so
+b7f9b000-b7f9d000 rwxp 00156000 08:16 4391376                            /lib/i686/cmov/libc-2.7.so
+b7f9d000-b7fa0000 rwxp b7f9d000 00:00 0 
+b7fa0000-b7fa2000 r-xp 00000000 08:16 4391373                            /lib/i686/cmov/libdl-2.7.so
+b7fa2000-b7fa4000 rwxp 00001000 08:16 4391373                            /lib/i686/cmov/libdl-2.7.so
+b7fa4000-b7fab000 r-xp 00000000 08:16 311681                             /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/jli/libjli.so
+b7fab000-b7fad000 rwxp 00006000 08:16 311681                             /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/jli/libjli.so
+b7fad000-b7fae000 rwxp b7fad000 00:00 0 
+b7fae000-b7fc3000 r-xp 00000000 08:16 4391369                            /lib/i686/cmov/libpthread-2.7.so
+b7fc3000-b7fc5000 rwxp 00014000 08:16 4391369                            /lib/i686/cmov/libpthread-2.7.so
+b7fc5000-b7fc7000 rwxp b7fc5000 00:00 0 
+b7fc7000-b7fc8000 r-xs 0000a000 08:16 5603753                            /home/testi/violetsky_torrent/TorrentWeb.jar
+b7fc8000-b7fc9000 r-xs 0000a000 08:16 5603753                            /home/testi/violetsky_torrent/TorrentWeb.jar
+b7fc9000-b7fcf000 r-xp 00000000 08:16 606217                             /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/native_threads/libhpi.so
+b7fcf000-b7fd0000 rwxp 00006000 08:16 606217                             /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/native_threads/libhpi.so
+b7fd0000-b7fd1000 rwxp b7fd0000 00:00 0 
+b7fd1000-b7fd2000 r-xp b7fd1000 00:00 0 
+b7fd2000-b7fdd000 r-xp 00000000 08:16 1426370                            /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/libverify.so
+b7fdd000-b7fde000 rwxp 0000b000 08:16 1426370                            /usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/libverify.so
+b7fde000-b7fe0000 rwxp b7fde000 00:00 0 
+b7fe0000-b7ffa000 r-xp 00000000 08:16 36909                              /lib/ld-2.7.so
+b7ffa000-b7ffc000 rwxp 0001a000 08:16 36909                              /lib/ld-2.7.so
+bf86d000-bf882000 rwxp 7ffffffea000 00:00 0                              [stack]
+
+VM Arguments:
+java_command: TorrentWeb.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/bin:/bin
+LD_LIBRARY_PATH=/usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386/client:/usr/lib/jvm/java-6-sun-1.6.0.17/jre/lib/i386:/usr/lib/jvm/java-6-sun-1.6.0.17/jre/../lib/i386
+SHELL=/bin/sh
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x3fc370], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x3fc370], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x325f30], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x325f30], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x325f30], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x325f30], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x328b20], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x328850], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x328850], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x328850], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x328850], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:5.0.4
+
+uname:Linux 2.6.26-2-openvz-amd64 #1 SMP Thu Nov 5 03:06:00 UTC 2009 i686
+libc:glibc 2.7 NPTL 2.7 
+rlimit: STACK 8192k, CORE 0k, NPROC 18431, NOFILE 1024, AS infinity
+load average:0.23 0.26 0.15
+
+CPU:total 1 (1 cores per cpu, 1 threads per core) family 15 model 44 stepping 2, cmov, cx8, fxsr, mmx, sse, sse2, sse3, mmxext, 3dnow, 3dnowext
+
+Memory: 4k page, physical 2317580k(22900k free), swap 1951856k(1388292k free)
+
+vm_info: Java HotSpot(TM) Client VM (14.3-b01) for linux-x86 JRE (1.6.0_17-b04), built on Oct 11 2009 01:17:07 by "java_re" with gcc 3.2.1-7a (J2SE release)
+
+time: Thu May  6 14:45:06 2010
+elapsed time: 5607735 seconds
+

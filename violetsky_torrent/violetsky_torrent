@@ -1,0 +1,3 @@
+#!/bin/sh
+cd /home/webtorrent/violetsky_torrent
+java -jar TorrentWeb.jar

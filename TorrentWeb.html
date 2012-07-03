@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
+	<META NAME="AUTHOR" CONTENT="testi">
+	<META NAME="CREATED" CONTENT="20090430;21301400">
+	<META NAME="CHANGEDBY" CONTENT="testi">
+	<META NAME="CHANGED" CONTENT="20090505;13060700">
+	<META NAME="CHANGEDBY" CONTENT="testi">
+	<META NAME="CHANGEDBY" CONTENT="testi">
+</HEAD>
+<BODY LANG="de-CH" DIR="LTR">
+<P><FONT SIZE=4><B>TorrentWeb Setup – Howto</B></FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>Dieses Howto erklärt
+anhand eines Beispiels wie man den TorrentWebServer einrichtet. Mit
+dem TorrentWebServer kann man ein Verzeichnis auf dem Computer
+„überwachen“ und per Klick im Browser torrents dazu erzeugen und
+zum Download bereitstellen.</FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>Kurz: Fileserver mit
+Torrent-Unterstützung.</FONT></P>
+<P><FONT SIZE=3><B>Einleitung</B></FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>Der TorrentWebServer ist
+abhängig von folgenden zusätzlichen Komponenten:</FONT></P>
+<UL>
+	<LI><P STYLE="font-weight: medium"><FONT SIZE=3>Webserver für das
+	Bereitstellen der Torrent-Dateien und des Webseeds (z.B. Apache
+	Webserver, lighttpd)</FONT></P>
+	<LI><P STYLE="font-weight: medium"><FONT SIZE=3>Bittorrent Tracker
+	(Entweder so eingestellt, dass er alle torrents erlaubt oder so
+	eingerichtet, dass er alle torrents im Verzeichnis unten akzeptiert)</FONT></P>
+	<LI><P STYLE="font-weight: medium"><FONT SIZE=3>Java 1.6</FONT></P>
+</UL>
+<P STYLE="font-weight: medium"><FONT SIZE=3>Einrichtung dieser
+Komponenten wird hier nicht erklärt. Wie die Verzeichnisrechte
+aussehen müssen wird auch nicht erklärt.</FONT></P>
+<P><BR><BR>
+</P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>Ausgangslage:</FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>Linux-System</FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>Unser Rechner ist
+erreichbar unter myhost.com bzw beliebigen Sub-Domains von myhost.com
+beispielsweise files.myhost.com</FONT></P>
+<P><FONT SIZE=3><SPAN STYLE="font-weight: medium">Es ist ein
+Bittorrent-Tracker installiert, der auf
+<A HREF="http://torrent.myhost.com:6881/announce">http://myhost.com:6881/announce</A>
+erreichbar ist</SPAN></FONT></P>
+<P><FONT SIZE=3><SPAN STYLE="font-weight: medium">Es ist ein apache
+virtualhost eingerichtet, dessen DocumentRoot auf: /var/www/files
+zeigt für <A HREF="http://files.myhost.com/">http://files.myhost.com</A></SPAN></FONT></P>
+<P><FONT SIZE=3><SPAN STYLE="font-weight: medium">Es ist ein apache
+virtualhost eingerichtet, dessen DocumentRoot auf:
+/var/www/torrent_files zeigt für <A HREF="http://torrentfiles.myhost.com/">http://torrentfiles.myhost.com</A></SPAN></FONT></P>
+<P><BR><BR>
+</P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>1.)</FONT></P>
+<P><FONT SIZE=3><SPAN STYLE="font-weight: medium">wget
+<A HREF="http://violetsky.ch/testi/TorrentWeb.zip">http://violetsky.ch/testi/TorrentWeb.zip</A></SPAN></FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>mkdir torrentweb</FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>cd torrentweb</FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>unzip ../TorrentWeb.zip</FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>2.)</FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>Erzeuge eine Datei
+torrentweb.cfg im Verzeichnis torrentweb mit folgendem Inhalt:</FONT></P>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=3 CELLSPACING=3 STYLE="page-break-inside: avoid">
+	<COL WIDTH=256*>
+	<TR>
+		<TD WIDTH=100% VALIGN=TOP>
+			<P STYLE="font-weight: medium"><FONT SIZE=3>port=8080 </FONT>
+			</P>
+			<P STYLE="font-weight: medium"><FONT SIZE=3>internal_root=/var/www/files</FONT></P>
+			<P STYLE="font-weight: medium"><FONT SIZE=3>internal_mirror=/var/www/torrent_files</FONT></P>
+			<P STYLE="font-weight: medium"><FONT SIZE=3>external_root=http://files.myhost.com</FONT></P>
+			<P STYLE="font-weight: medium"><FONT SIZE=3>external_mirror=http://torrentfiles.myhost.com</FONT></P>
+			<P STYLE="font-weight: medium"><FONT SIZE=3>announce_url=http://myhost.com:6881/announce
+			</FONT>
+			</P>
+			<P STYLE="font-weight: medium"><FONT SIZE=3>remove_period=3600</FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>port: Port, auf dem der
+TorrentWebServer läuft</FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>internal_root: Interner
+Pfad (auf dem Dateisystem) zum Verzeichnis, dessen Inhalte über
+torrent verfügbar sein sollen.</FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>internal_mirror: Interner
+Pfad, wo die Torrent-Dateien abgespeichert werden sollen.</FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>external_root: HTTP-URL,
+welche auf das dasselbe Verzeichnis zeigt wie internal_root.</FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>external_mirror:
+HTTP-URL, welche auf das dasselbe Verzeichnis zeigt wie
+internal_mirror.</FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>announce_url:
+Announce-URL des Bittorrent-Trackers</FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>remove_period: Intervall
+in Sekunden in welchem das Verzeichnis internal_mirror nach
+torrent-Dateien durchsucht wird, zu welchen die Originaldateien nicht
+mehr vorhanden sind, und gegebenenfalls löscht. Sollen keine
+Prüfungen durchgeführt werden, so ist diesert Wert auf 0 zu setzen.</FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>(Immer ohne Slash am
+Ende)</FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>3.)</FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>Starte den
+TorrentWebServer</FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>java -jar TorrentWeb.jar</FONT></P>
+<P><FONT SIZE=3><SPAN STYLE="font-weight: medium">Öffne den Browser
+auf <A HREF="http://myhost.com:8080/">http://myhost.com:8080</A></SPAN></FONT></P>
+<P STYLE="font-weight: medium"><FONT SIZE=3>Es sollte deluge, azureus
+oder µtorrent zum testen verwendet werden, da ich von diesen
+bittorrent-Programmen weiss, dass sie Webseed unterstützen.</FONT></P>
+<HR>
+<P STYLE="font-weight: medium"><FONT SIZE=3>SVN-Verzeichnis: svn co http://liandri.mine.nu/svn/liandri/TorrentWeb</FONT></P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

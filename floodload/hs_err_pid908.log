@@ -1,0 +1,314 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (exceptions.cpp:364), pid=908, tid=3030317968
+#  Error: ExceptionMark destructor expects no pending exceptions
+#
+# JRE version: 6.0_15-b03
+# Java VM: Java HotSpot(TM) Client VM (14.1-b02 mixed mode, sharing linux-x86 )
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0xb4c12000):  JavaThread "Thread-4" [_thread_in_vm, id=12203, stack(0xb499f000,0xb49f0000)]
+
+Stack: [0xb499f000,0xb49f0000],  sp=0xb49ec460,  free space=309k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x3fb68a]
+V  [libjvm.so+0x191d3c]
+V  [libjvm.so+0x1a5921]
+V  [libjvm.so+0x1487c6]
+V  [libjvm.so+0x147da3]
+V  [libjvm.so+0x147e40]
+V  [libjvm.so+0x149800]
+V  [libjvm.so+0x39e98c]
+V  [libjvm.so+0x39ce15]
+V  [libjvm.so+0x39bd46]
+V  [libjvm.so+0x39ba00]
+V  [libjvm.so+0x289f2e]
+V  [libjvm.so+0x28fa7d]
+V  [libjvm.so+0x271b32]
+C  [libjava.so+0xbbd4]  Java_java_lang_ClassLoader_findBootstrapClass+0x114
+j  java.lang.ClassLoader.findBootstrapClass(Ljava/lang/String;)Ljava/lang/Class;+0
+j  java.lang.ClassLoader.findBootstrapClass0(Ljava/lang/String;)Ljava/lang/Class;+23
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+32
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+23
+j  sun.misc.Launcher$AppClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+41
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class;+3
+j  java.lang.ClassLoader.loadClassInternal(Ljava/lang/String;)Ljava/lang/Class;+2
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x2136d0]
+V  [libjvm.so+0x3270c8]
+V  [libjvm.so+0x213142]
+V  [libjvm.so+0x213247]
+V  [libjvm.so+0x39eb61]
+V  [libjvm.so+0x39ce15]
+V  [libjvm.so+0x39bd46]
+V  [libjvm.so+0x39ba00]
+V  [libjvm.so+0x289f2e]
+V  [libjvm.so+0x28fa7d]
+V  [libjvm.so+0x271b32]
+C  [libjava.so+0xb246]  Java_java_lang_Class_forName0+0x116
+j  java.lang.Class.forName0(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;+0
+j  java.lang.Class.forName(Ljava/lang/String;)Ljava/lang/Class;+5
+j  org.gudy.azureus2.core3.security.impl.SESecurityManagerImpl.initialise()V+103
+j  org.gudy.azureus2.core3.security.SESecurityManager.initialise()V+3
+j  org.gudy.azureus2.core3.config.impl.ConfigurationChecker.setSystemProperties()V+375
+j  org.gudy.azureus2.core3.config.impl.ConfigurationManager.initialise()V+3
+j  org.gudy.azureus2.core3.config.impl.ConfigurationManager.getInstance()Lorg/gudy/azureus2/core3/config/impl/ConfigurationManager;+37
+j  org.gudy.azureus2.core3.config.COConfigurationManager.addAndFireParameterListener(Ljava/lang/String;Lorg/gudy/azureus2/core3/config/ParameterListener;)V+0
+j  org.gudy.azureus2.core3.util.TorrentUtils.<clinit>()V+29
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x2136d0]
+V  [libjvm.so+0x3270c8]
+V  [libjvm.so+0x21352f]
+V  [libjvm.so+0x1f0266]
+V  [libjvm.so+0x1eefa0]
+V  [libjvm.so+0x1ee2e8]
+V  [libjvm.so+0x2eda1f]
+V  [libjvm.so+0x2ef53f]
+V  [libjvm.so+0x2ef36f]
+V  [libjvm.so+0x20ccfe]
+j  org.gudy.azureus2.core3.torrent.impl.TOTorrentCreateImpl.setIgnoreList()V+1
+j  org.gudy.azureus2.core3.torrent.impl.TOTorrentCreateImpl.constructFixed(Ljava/io/File;J)V+1
+j  org.gudy.azureus2.core3.torrent.impl.TOTorrentCreateImpl.create()V+9
+j  org.gudy.azureus2.core3.torrent.impl.TOTorrentCreatorImpl.create()Lorg/gudy/azureus2/core3/torrent/TOTorrent;+4
+j  torrentweb.TorrentManager$WebTorrent.create()V+78
+j  torrentweb.Frontpage$1.run()V+4
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x2136d0]
+V  [libjvm.so+0x3270c8]
+V  [libjvm.so+0x212ed7]
+V  [libjvm.so+0x212f8a]
+V  [libjvm.so+0x2902a5]
+V  [libjvm.so+0x3ca6ae]
+V  [libjvm.so+0x32856e]
+C  [libpthread.so.0+0x64c0]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.lang.ClassLoader.findBootstrapClass(Ljava/lang/String;)Ljava/lang/Class;+0
+j  java.lang.ClassLoader.findBootstrapClass0(Ljava/lang/String;)Ljava/lang/Class;+23
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+32
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+23
+j  sun.misc.Launcher$AppClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+41
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class;+3
+j  java.lang.ClassLoader.loadClassInternal(Ljava/lang/String;)Ljava/lang/Class;+2
+v  ~StubRoutines::call_stub
+j  java.lang.Class.forName0(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;+0
+j  java.lang.Class.forName(Ljava/lang/String;)Ljava/lang/Class;+5
+j  org.gudy.azureus2.core3.security.impl.SESecurityManagerImpl.initialise()V+103
+j  org.gudy.azureus2.core3.security.SESecurityManager.initialise()V+3
+j  org.gudy.azureus2.core3.config.impl.ConfigurationChecker.setSystemProperties()V+375
+j  org.gudy.azureus2.core3.config.impl.ConfigurationManager.initialise()V+3
+j  org.gudy.azureus2.core3.config.impl.ConfigurationManager.getInstance()Lorg/gudy/azureus2/core3/config/impl/ConfigurationManager;+37
+j  org.gudy.azureus2.core3.config.COConfigurationManager.addAndFireParameterListener(Ljava/lang/String;Lorg/gudy/azureus2/core3/config/ParameterListener;)V+0
+j  org.gudy.azureus2.core3.util.TorrentUtils.<clinit>()V+29
+v  ~StubRoutines::call_stub
+j  org.gudy.azureus2.core3.torrent.impl.TOTorrentCreateImpl.setIgnoreList()V+1
+j  org.gudy.azureus2.core3.torrent.impl.TOTorrentCreateImpl.constructFixed(Ljava/io/File;J)V+1
+j  org.gudy.azureus2.core3.torrent.impl.TOTorrentCreateImpl.create()V+9
+j  org.gudy.azureus2.core3.torrent.impl.TOTorrentCreatorImpl.create()Lorg/gudy/azureus2/core3/torrent/TOTorrent;+4
+j  torrentweb.TorrentManager$WebTorrent.create()V+78
+j  torrentweb.Frontpage$1.run()V+4
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x08f74400 JavaThread "Timer:Simple Timer" daemon [_thread_blocked, id=12205, stack(0xb48fd000,0xb494e000)]
+  0x08f70000 JavaThread "SystemTime" daemon [_thread_blocked, id=12204, stack(0xb494e000,0xb499f000)]
+=>0xb4c12000 JavaThread "Thread-4" [_thread_in_vm, id=12203, stack(0xb499f000,0xb49f0000)]
+  0xb4c1ac00 JavaThread "AEThead2:parked[1]" daemon [_thread_blocked, id=12202, stack(0xb49f0000,0xb4a41000)]
+  0x08e96c00 JavaThread "Thread-3" daemon [_thread_blocked, id=1049, stack(0xb4a41000,0xb4a92000)]
+  0x08e79000 JavaThread "DestroyJavaVM" [_thread_blocked, id=911, stack(0xb74ad000,0xb74fe000)]
+  0x08e95c00 JavaThread "Thread-2" [_thread_in_native, id=1004, stack(0xb4a92000,0xb4ae3000)]
+  0x08f63400 JavaThread "server-timer" daemon [_thread_blocked, id=1002, stack(0xb4ae3000,0xb4b34000)]
+  0x08eb5c00 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=995, stack(0xb4dcb000,0xb4e1c000)]
+  0x08eb2800 JavaThread "CompilerThread0" daemon [_thread_blocked, id=994, stack(0xb4e1c000,0xb4e9d000)]
+  0x08eb1000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=993, stack(0xb4e9d000,0xb4eee000)]
+  0x08ea0400 JavaThread "Finalizer" daemon [_thread_blocked, id=992, stack(0xb51f1000,0xb5242000)]
+  0x08e9ec00 JavaThread "Reference Handler" daemon [_thread_blocked, id=990, stack(0xb5242000,0xb5293000)]
+
+Other Threads:
+  0x08e9d000 VMThread [stack: 0xb5293000,0xb5314000] [id=988]
+  0x08ec1800 WatcherThread [stack: 0xb4d4a000,0xb4dcb000] [id=1000]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 960K, used 452K [0x8b800000, 0x8b900000, 0x8bce0000)
+  eden space 896K,  43% used [0x8b800000, 0x8b8613c0, 0x8b8e0000)
+  from space 64K, 100% used [0x8b8e0000, 0x8b8f0000, 0x8b8f0000)
+  to   space 64K,   0% used [0x8b8f0000, 0x8b8f0000, 0x8b900000)
+ tenured generation   total 4096K, used 559K [0x8bce0000, 0x8c0e0000, 0x8f800000)
+   the space 4096K,  13% used [0x8bce0000, 0x8bd6bf20, 0x8bd6c000, 0x8c0e0000)
+ compacting perm gen  total 12288K, used 1139K [0x8f800000, 0x90400000, 0x93800000)
+   the space 12288K,   9% used [0x8f800000, 0x8f91cd88, 0x8f91ce00, 0x90400000)
+    ro space 8192K,  74% used [0x93800000, 0x93dfa2a8, 0x93dfa400, 0x94000000)
+    rw space 12288K,  59% used [0x94000000, 0x94717878, 0x94717a00, 0x94c00000)
+
+Dynamic libraries:
+08048000-08052000 r-xp 00000000 08:16 7752501                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/bin/java
+08052000-08053000 rwxp 00009000 08:16 7752501                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/bin/java
+08e73000-09024000 rwxp 08e73000 00:00 0                                  [heap]
+8b800000-8b900000 rwxp 8b800000 00:00 0 
+8b900000-8bce0000 rwxp 8b900000 00:00 0 
+8bce0000-8c0e0000 rwxp 8bce0000 00:00 0 
+8c0e0000-8f800000 rwxp 8c0e0000 00:00 0 
+8f800000-90400000 rwxp 8f800000 00:00 0 
+90400000-93800000 rwxp 90400000 00:00 0 
+93800000-93dfb000 r-xs 00001000 08:16 7749729                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/client/classes.jsa
+93dfb000-94000000 rwxp 93dfb000 00:00 0 
+94000000-94718000 rwxp 005fc000 08:16 7749729                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/client/classes.jsa
+94718000-94c00000 rwxp 94718000 00:00 0 
+94c00000-94cde000 rwxp 00d14000 08:16 7749729                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/client/classes.jsa
+94cde000-95000000 rwxp 94cde000 00:00 0 
+95000000-95008000 r-xs 00df2000 08:16 7749729                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/client/classes.jsa
+95008000-95400000 rwxp 95008000 00:00 0 
+b48fd000-b4900000 ---p b48fd000 00:00 0 
+b4900000-b494e000 rwxp b4900000 00:00 0 
+b494e000-b4951000 ---p b494e000 00:00 0 
+b4951000-b499f000 rwxp b4951000 00:00 0 
+b499f000-b49a2000 ---p b499f000 00:00 0 
+b49a2000-b49f0000 rwxp b49a2000 00:00 0 
+b49f0000-b49f3000 ---p b49f0000 00:00 0 
+b49f3000-b4a41000 rwxp b49f3000 00:00 0 
+b4a41000-b4a44000 ---p b4a41000 00:00 0 
+b4a44000-b4a92000 rwxp b4a44000 00:00 0 
+b4a92000-b4a95000 ---p b4a92000 00:00 0 
+b4a95000-b4ae3000 rwxp b4a95000 00:00 0 
+b4ae3000-b4ae6000 ---p b4ae3000 00:00 0 
+b4ae6000-b4b34000 rwxp b4ae6000 00:00 0 
+b4b34000-b4c00000 r-xs 00b7f000 08:16 4690479                            /home/testi/floodload/lib/Azureus2.jar
+b4c00000-b4c2e000 rwxp b4c00000 00:00 0 
+b4c2e000-b4d00000 ---p b4c2e000 00:00 0 
+b4d2e000-b4d35000 r-xp 00000000 08:16 7752320                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/libnio.so
+b4d35000-b4d36000 rwxp 00006000 08:16 7752320                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/libnio.so
+b4d36000-b4d49000 r-xp 00000000 08:16 7752277                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/libnet.so
+b4d49000-b4d4a000 rwxp 00013000 08:16 7752277                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/libnet.so
+b4d4a000-b4d4b000 ---p b4d4a000 00:00 0 
+b4d4b000-b4dcb000 rwxp b4d4b000 00:00 0 
+b4dcb000-b4dce000 ---p b4dcb000 00:00 0 
+b4dce000-b4e1c000 rwxp b4dce000 00:00 0 
+b4e1c000-b4e1f000 ---p b4e1c000 00:00 0 
+b4e1f000-b4e9d000 rwxp b4e1f000 00:00 0 
+b4e9d000-b4ea0000 ---p b4e9d000 00:00 0 
+b4ea0000-b4f21000 rwxp b4ea0000 00:00 0 
+b4f21000-b50b7000 r-xs 02fb3000 08:16 7752341                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/rt.jar
+b50b7000-b51f1000 r-xp 00000000 08:16 4707367                            /usr/lib/locale/locale-archive
+b51f1000-b51f4000 ---p b51f1000 00:00 0 
+b51f4000-b5242000 rwxp b51f4000 00:00 0 
+b5242000-b5245000 ---p b5242000 00:00 0 
+b5245000-b5293000 rwxp b5245000 00:00 0 
+b5293000-b5294000 ---p b5293000 00:00 0 
+b5294000-b531b000 rwxp b5294000 00:00 0 
+b531b000-b5335000 rwxp b531b000 00:00 0 
+b5335000-b5338000 rwxp b5335000 00:00 0 
+b5338000-b5353000 rwxp b5338000 00:00 0 
+b5353000-b5354000 rwxp b5353000 00:00 0 
+b5354000-b5355000 rwxp b5354000 00:00 0 
+b5355000-b5358000 rwxp b5355000 00:00 0 
+b5358000-b5373000 rwxp b5358000 00:00 0 
+b5373000-b5379000 rwxp b5373000 00:00 0 
+b5379000-b5393000 rwxp b5379000 00:00 0 
+b5393000-b53a2000 rwxp b5393000 00:00 0 
+b53a2000-b541e000 rwxp b53a2000 00:00 0 
+b541e000-b54fe000 rwxp b541e000 00:00 0 
+b54fe000-b741e000 rwxp b54fe000 00:00 0 
+b741e000-b742d000 r-xp 00000000 08:16 7752290                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/libzip.so
+b742d000-b742f000 rwxp 0000e000 08:16 7752290                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/libzip.so
+b742f000-b7439000 r-xp 00000000 08:16 4396254                            /lib/i686/cmov/libnss_files-2.7.so
+b7439000-b743b000 rwxp 00009000 08:16 4396254                            /lib/i686/cmov/libnss_files-2.7.so
+b743b000-b7444000 r-xp 00000000 08:16 4396256                            /lib/i686/cmov/libnss_nis-2.7.so
+b7444000-b7446000 rwxp 00008000 08:16 4396256                            /lib/i686/cmov/libnss_nis-2.7.so
+b7446000-b744d000 r-xp 00000000 08:16 4396252                            /lib/i686/cmov/libnss_compat-2.7.so
+b744d000-b744f000 rwxp 00006000 08:16 4396252                            /lib/i686/cmov/libnss_compat-2.7.so
+b744f000-b7464000 r-xp 00000000 08:16 4396251                            /lib/i686/cmov/libnsl-2.7.so
+b7464000-b7466000 rwxp 00014000 08:16 4396251                            /lib/i686/cmov/libnsl-2.7.so
+b7466000-b7468000 rwxp b7466000 00:00 0 
+b7469000-b746b000 r-xs 00009000 08:16 4687907                            /home/testi/floodload/TorrentWeb.jar
+b746b000-b7477000 rwxp b746b000 00:00 0 
+b7477000-b747f000 rwxs 00000000 08:16 4687638                            /tmp/hsperfdata_testi/908
+b747f000-b74a2000 r-xp 00000000 08:16 7752296                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/libjava.so
+b74a2000-b74a4000 rwxp 00023000 08:16 7752296                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/libjava.so
+b74a4000-b74ab000 r-xp 00000000 08:16 4396261                            /lib/i686/cmov/librt-2.7.so
+b74ab000-b74ad000 rwxp 00006000 08:16 4396261                            /lib/i686/cmov/librt-2.7.so
+b74ad000-b74b0000 ---p b74ad000 00:00 0 
+b74b0000-b74fe000 rwxp b74b0000 00:00 0 
+b74fe000-b7522000 r-xp 00000000 08:16 4396249                            /lib/i686/cmov/libm-2.7.so
+b7522000-b7524000 rwxp 00023000 08:16 4396249                            /lib/i686/cmov/libm-2.7.so
+b7524000-b798a000 r-xp 00000000 08:16 7752313                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/client/libjvm.so
+b798a000-b79aa000 rwxp 00465000 08:16 7752313                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/client/libjvm.so
+b79aa000-b7dcb000 rwxp b79aa000 00:00 0 
+b7dcb000-b7f20000 r-xp 00000000 08:16 4396245                            /lib/i686/cmov/libc-2.7.so
+b7f20000-b7f21000 r-xp 00155000 08:16 4396245                            /lib/i686/cmov/libc-2.7.so
+b7f21000-b7f23000 rwxp 00156000 08:16 4396245                            /lib/i686/cmov/libc-2.7.so
+b7f23000-b7f26000 rwxp b7f23000 00:00 0 
+b7f26000-b7f28000 r-xp 00000000 08:16 4396248                            /lib/i686/cmov/libdl-2.7.so
+b7f28000-b7f2a000 rwxp 00001000 08:16 4396248                            /lib/i686/cmov/libdl-2.7.so
+b7f2a000-b7f31000 r-xp 00000000 08:16 7752282                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/jli/libjli.so
+b7f31000-b7f33000 rwxp 00006000 08:16 7752282                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/jli/libjli.so
+b7f33000-b7f34000 rwxp b7f33000 00:00 0 
+b7f34000-b7f49000 r-xp 00000000 08:16 4396259                            /lib/i686/cmov/libpthread-2.7.so
+b7f49000-b7f4b000 rwxp 00014000 08:16 4396259                            /lib/i686/cmov/libpthread-2.7.so
+b7f4b000-b7f4d000 rwxp b7f4b000 00:00 0 
+b7f4d000-b7f4f000 r-xs 00009000 08:16 4687907                            /home/testi/floodload/TorrentWeb.jar
+b7f4f000-b7f55000 r-xp 00000000 08:16 7752318                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/native_threads/libhpi.so
+b7f55000-b7f56000 rwxp 00006000 08:16 7752318                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/native_threads/libhpi.so
+b7f56000-b7f57000 rwxp b7f56000 00:00 0 
+b7f57000-b7f58000 r-xp b7f57000 00:00 0 
+b7f58000-b7f63000 r-xp 00000000 08:16 7752276                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/libverify.so
+b7f63000-b7f64000 rwxp 0000b000 08:16 7752276                            /usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/libverify.so
+b7f64000-b7f66000 rwxp b7f64000 00:00 0 
+b7f66000-b7f80000 r-xp 00000000 08:16 33873                              /lib/ld-2.7.so
+b7f80000-b7f82000 rwxp 0001a000 08:16 33873                              /lib/ld-2.7.so
+bfc6c000-bfc81000 rwxp 7ffffffea000 00:00 0                              [stack]
+
+VM Arguments:
+java_command: TorrentWeb.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/bin:/bin
+LD_LIBRARY_PATH=/usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386/client:/usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/i386:/usr/lib/jvm/java-6-sun-1.6.0.15/jre/../lib/i386
+SHELL=/bin/sh
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x3fc2e0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x3fc2e0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x325ea0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x325ea0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x325ea0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x325ea0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x328a90], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x3287c0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x3287c0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x3287c0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x3287c0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:5.0.2
+
+uname:Linux 2.6.26-2-openvz-amd64 #1 SMP Sun Jul 26 21:18:21 UTC 2009 i686
+libc:glibc 2.7 NPTL 2.7 
+rlimit: STACK 8192k, CORE 0k, NPROC 18431, NOFILE 1024, AS infinity
+load average:0.27 0.15 0.08
+
+CPU:total 1 (1 cores per cpu, 1 threads per core) family 15 model 44 stepping 2, cmov, cx8, fxsr, mmx, sse, sse2, sse3, mmxext, 3dnow, 3dnowext
+
+Memory: 4k page, physical 2317580k(18968k free), swap 1951856k(1951000k free)
+
+vm_info: Java HotSpot(TM) Client VM (14.1-b02) for linux-x86 JRE (1.6.0_15-b03), built on Jul  2 2009 16:04:51 by "java_re" with gcc 3.2.1-7a (J2SE release)
+
+time: Fri Sep 25 12:30:43 2009
+elapsed time: 4029330 seconds
+
