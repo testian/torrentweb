@@ -22,7 +22,6 @@ public class Frontpage implements HttpHandler {
     public File absoluteFile(String path) {
     return new File(contentRoot + path);
     }
-    @Override
     public void handle(HttpExchange exchange) throws IOException {
 
 
@@ -233,7 +232,6 @@ public class Frontpage implements HttpHandler {
 
             Comparator alphabetically = new Comparator<File>() {
 
-                @Override
                 public int compare(File o1, File o2) {
                     return o1.getName().compareToIgnoreCase(o2.getName());
                 }
