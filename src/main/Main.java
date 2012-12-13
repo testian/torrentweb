@@ -15,7 +15,8 @@ import java.util.*;
  */
 public class Main {
 public static void main(String[] args) {
-    Configuration config = new Configuration();
+
+	Configuration config = new Configuration();
     try {
     config.read(new File("torrentweb.cfg"));
     int port=8080;
@@ -36,7 +37,8 @@ public static void main(String[] args) {
     
 
     String internal_root = config.get("internal_root");
-
+    System.setSecurityManager(new NoFollowSymlink(internal_root));
+    
     String internal_mirror = config.get("internal_mirror");
     String external_mirror = config.get("external_mirror");
     String announce_url = config.get("announce_url");
