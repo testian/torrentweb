@@ -55,10 +55,14 @@ public class Frontpage implements HttpHandler {
 
 
             File sessionPath = new File(absolutePath);
+            
             try {
+            	boolean sessionPathExists = sessionPath.exists(); 
+            	try {
+            	
 
 
-                if (sessionPath.exists()) {
+                if (sessionPathExists) {
 
 
                     exchange.sendResponseHeaders(200, 0);
@@ -100,8 +104,16 @@ public class Frontpage implements HttpHandler {
                     out.println("<html><head><title>Error</title></head><body>");
                     out.println("<h1>File not found: " + Conversion.HTMLString(path) + "</h1><br>");
                 }
-            } catch (Exception ex) {
-                out.println("Error: " + ex.getMessage());
+            } 
+            catch (Exception ex) {
+            	//exchange.sendResponseHeaders(500, 0);
+            	//out.println("<html><head><title>Error</title></head><body>");
+            	out.println("Error: " + ex.getMessage());
+            }
+            } catch (SecurityException ex) {
+            	exchange.sendResponseHeaders(403, 0);
+            	out.println("<html><head><title>Error</title></head><body>");
+            	out.println("<h1>Forbidden: " + ex.getMessage() + "</h1><br>");
             }
         }
 
@@ -203,6 +215,7 @@ public class Frontpage implements HttpHandler {
         File directory;
         ArrayList<File> directoryList;
         ArrayList<File> fileList;
+        //ArrayList<File> unknownList;
         DirectoryListing(String in_path) {
             path = in_path;
             directory = absoluteFile(in_path);
@@ -211,11 +224,16 @@ public class Frontpage implements HttpHandler {
             fileList = new ArrayList<File>();
             for (int i = 0; i < files.length; i++) {
                 File toAdd = new File(contentRoot + path + File.separator + files[i]);
+                try {
                 if (toAdd.isDirectory()) {
                     directoryList.add(toAdd);
                 } else {
                     fileList.add(toAdd);
                 }
+                } catch (SecurityException ex) {
+                	fileList.add(toAdd);
+                }
+                
             }
         }
 
@@ -251,22 +269,37 @@ public class Frontpage implements HttpHandler {
         }
 
         public void displayItem(File file, PrintWriter out) throws IOException {
-
+        	boolean isSpecial = false;
+        	try {
             if (file.isHidden()) {
                 return;
+            }} catch (SecurityException ex) {
+            	isSpecial = true;
             }
             out.print("<tr><td>");
-            boolean isdirectory = file.isDirectory();
+            
+            boolean isdirectory = false;
+            if (!isSpecial) {
+            try {
+            isdirectory = file.isDirectory();}
+            catch (SecurityException ex) {
+            	isSpecial = true;
+            }
+            }
+            
             if (isdirectory) {
                 out.print("[DIR]");
                 displayLink(Conversion.VeryCompatibleQueryStringCompliant(path + File.separator + file.getName()) + "?astorrent=true", "<TORRENT>", out);
-            } else {
+            } else if (isSpecial) {
+            	out.print("[SPECIAL]");
+            }
+            else {
                 out.print("[FILE]");
             }
             out.print("</td>");
             out.print("<td>");
             long filelength = 0;
-            if (!isdirectory) {
+            if (!isdirectory && !isSpecial) {
                 filelength = file.length();
             }
             if (isdirectory) {
@@ -279,7 +312,7 @@ public class Frontpage implements HttpHandler {
             }
             out.print("</td><td align='right'>" + format.format(new Date(file.lastModified())) + " ");
             out.print("</td><td align='right'>");
-            if (!isdirectory) {
+            if (!isdirectory && !isSpecial) {
                 out.print(HumanReadable(filelength));
             } else {
                 out.print("-");
