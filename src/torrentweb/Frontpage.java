@@ -310,7 +310,8 @@ public class Frontpage implements HttpHandler {
             else {
                 out.print(Conversion.HTMLString(file.getName()));
             }
-            out.print("</td><td align='right'>" + format.format(new Date(file.lastModified())) + " ");
+            
+            out.print("</td><td align='right'>" + (isSpecial ? "-" : format.format(new Date(file.lastModified()))) + " ");
             out.print("</td><td align='right'>");
             if (!isdirectory && !isSpecial) {
                 out.print(HumanReadable(filelength));
