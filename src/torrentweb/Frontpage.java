@@ -108,7 +108,9 @@ public class Frontpage implements HttpHandler {
             catch (Exception ex) {
             	//exchange.sendResponseHeaders(500, 0);
             	//out.println("<html><head><title>Error</title></head><body>");
-            	out.println("Error: " + ex.getMessage());
+            	String message = ex.getMessage();
+            	message = message == null ? ex.toString() : message; 
+            	out.println("Error: " + message);
             }
             } catch (SecurityException ex) {
             	exchange.sendResponseHeaders(403, 0);

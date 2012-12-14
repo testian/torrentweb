@@ -416,6 +416,12 @@ public class NoFollowSymlink extends SecurityManager {
 
 
 	@Override
+	public boolean checkTopLevelWindow(Object arg0) {
+		// TODO Auto-generated method stub
+		return true;
+	}
+	
+	@Override
 	public void checkWrite(String file) {
 		// TODO Auto-generated method stub
 		//super.checkWrite(file);
@@ -432,14 +438,6 @@ public class NoFollowSymlink extends SecurityManager {
 		  if (file == null)
 		    throw new NullPointerException("File must not be null");
 		  return !file.getCanonicalPath().equals(file.getAbsolutePath());
-		  /*File canon;
-		  if (file.getParent() == null) {
-		    canon = file;
-		  } else {
-		    File canonDir = file.getParentFile().getCanonicalFile();
-		    canon = new File(canonDir, file.getName());
-		  }
-		  return !canon.getCanonicalFile().equals(canon.getAbsoluteFile());*/
 		}
 	
 	
