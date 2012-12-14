@@ -102,7 +102,7 @@ public class TorrentManager {
         private File originalFile;
         private File torrentFile;
         private TOTorrent torrent;
-        private TOTorrentCreator torrentCreator;
+        //private TOTorrentCreator torrentCreator;
         private boolean created;
         int progress;
 
@@ -111,7 +111,7 @@ public class TorrentManager {
             assertValidOriginalPath(originalFilePath);
             this.originalFilePath = originalFilePath;
             this.originalFile = new File(fileRoot + originalFilePath);
-            torrentCreator = TOTorrentFactory.createFromFileOrDirWithComputedPieceLength(originalFile, trackerURL);
+            //torrentCreator = TOTorrentFactory.createFromFileOrDirWithComputedPieceLength(originalFile, trackerURL);
             torrentFile = new File(torrentName(originalFilePath));
             torrent = null;
             created = false;
@@ -245,7 +245,7 @@ public class TorrentManager {
         public void create() throws TOTorrentException {
             //torrentFile = new File(torrentName(originalFile.getPath()));
             // try {
-            torrentCreator = TOTorrentFactory.createFromFileOrDirWithComputedPieceLength(originalFile,
+            TOTorrentCreator torrentCreator = TOTorrentFactory.createFromFileOrDirWithComputedPieceLength(originalFile,
                     trackerURL);
             torrentCreator.addListener(new TOTorrentProgressListener() {
 
