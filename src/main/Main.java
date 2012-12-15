@@ -56,6 +56,7 @@ public static void main(String[] args) {
                 @Override
                 public void run() {
                     tm.clean();
+                    //System.out.println("Security: " + System.getSecurityManager());
                 }
 
     }, 0, period);}

@@ -15,7 +15,14 @@ public class NoFollowSymlink extends SecurityManager {
 	public void checkRead(String file) {
 		if (file == null) throw new NullPointerException();
 		final File f = new File(file);
-		
+		/*try {
+		System.out.println("Abs: " + f.getAbsolutePath());
+		System.out.println("Can: " + f.getCanonicalPath());
+		System.out.println("restrictedRoot: " + restrictedRoot);
+		} catch (IOException ex) {
+			System.out.println("Error checkRead: " + ex);
+			
+		}*/
 
 		//System.out.println("Sym?: " + file + " " + isSymlink(f));
 		/*boolean symlink = AccessController.doPrivileged(new PrivilegedAction<Boolean>() {
@@ -275,7 +282,7 @@ public class NoFollowSymlink extends SecurityManager {
 	@Override
 	public void checkPermission(Permission perm, Object context) {
 		// TODO Auto-generated method stub
-		//super.checkPermission(perm, context);
+		checkPermission(perm);
 	}
 
 
@@ -288,7 +295,14 @@ public class NoFollowSymlink extends SecurityManager {
 	@Override
 	public void checkPermission(Permission perm) {
 		// TODO Auto-generated method stub
-		//super.checkPermission(perm);
+		//System.out.println("checkPermission: " + perm);
+		//System.out.println("name: " + perm.getName());
+		if (perm == null) throw new NullPointerException();
+		if (perm instanceof RuntimePermission) {
+			if ("setSecurityManager".equals(perm.getName()))
+				throw new SecurityException("The current Security Manager must not be replaced");
+			
+		}
 	}
 
 
@@ -341,6 +355,7 @@ public class NoFollowSymlink extends SecurityManager {
 	public void checkRead(FileDescriptor fd) {
 		// TODO Auto-generated method stub
 		//super.checkRead(fd);
+		//throw new SecurityException("FileDescriptor..");
 	}
 
 
@@ -352,8 +367,7 @@ public class NoFollowSymlink extends SecurityManager {
 
 	@Override
 	public void checkRead(String file, Object context) {
-		// TODO Auto-generated method stub
-		//super.checkRead(file, context);
+		//checkRead(file);
 	}
 
 

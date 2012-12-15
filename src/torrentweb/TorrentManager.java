@@ -57,6 +57,7 @@ public class TorrentManager {
         }
 
         File originalFile = new File(fileRoot + orig);
+        try {
         if (!originalFile.exists()) {
             if (torrentFile.delete()) {
                 System.out.println(toClean + " deleted.");
@@ -65,6 +66,17 @@ public class TorrentManager {
 
             }
         }
+        } catch (SecurityException ex) {
+        	
+            if (torrentFile.delete()) {
+                System.out.println(toClean + " deleted.");
+            } else {
+                System.err.println("Failed to delete " + toClean + ".");
+
+            }
+        	
+        }
+        
     }
 
     public WebTorrent getWebTorrent(String path) throws InvalidPathException, TOTorrentException {
